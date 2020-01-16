@@ -14,8 +14,8 @@ public protocol Command {
     var command:  String { get }
     var overview: String { get }
     
-    public init(parser: ArgumentParser)
-    public func run(with arguments: ArgumentParser.Result) throws -> Bool
+    init(parser: ArgumentParser)
+    func run(with arguments: ArgumentParser.Result) throws -> Bool
  }
 
 public struct CommandRegistry {

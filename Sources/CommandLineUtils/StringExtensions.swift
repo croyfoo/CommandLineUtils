@@ -9,12 +9,12 @@
 import Foundation
 
 extension String {
-    func deletingPrefix(_ prefix: String) -> String {
+    public func deletingPrefix(_ prefix: String) -> String {
         guard self.hasPrefix(prefix) else { return self }
         return String(self.dropFirst(prefix.count))
     }
     
-    func deleteTags() -> String {
+    public func deleteTags() -> String {
         self.contains("@") ? self.split(separator: "@")[0].reduce("") { String($0) + String($1) } : self
     }
 

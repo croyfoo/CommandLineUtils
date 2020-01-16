@@ -10,28 +10,28 @@ import Foundation
 import SPMUtility
 import Basic
 
-protocol Command {
+public protocol Command {
     var command:  String { get }
     var overview: String { get }
     
-    init(parser: ArgumentParser)
-    func run(with arguments: ArgumentParser.Result) throws -> Bool
+    public init(parser: ArgumentParser)
+    public func run(with arguments: ArgumentParser.Result) throws -> Bool
  }
 
-struct CommandRegistry {
+public struct CommandRegistry {
     
     private let parser: ArgumentParser
     private var commands = [Command]()
     
-    init(usage: String, overview: String) {
+    public init(usage: String, overview: String) {
         parser = ArgumentParser(usage: usage, overview: overview)
     }
     
-    mutating func register(command: Command.Type) {
+    public mutating func register(command: Command.Type) {
         commands.append(command.init(parser: parser))
     }
     
-    func run() {
+    public func run() {
         do {
             let parsedArguments = try parse()
             try process(arguments: parsedArguments)

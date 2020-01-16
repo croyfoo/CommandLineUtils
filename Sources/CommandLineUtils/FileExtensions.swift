@@ -11,7 +11,7 @@ import Files
 
 extension File {
     
-    func readLines() throws -> [String] {
+    public func readLines() throws -> [String] {
         try readAsString(encodedAs: .utf8).split(separator: "\n").map{ String($0) }
     }
 }

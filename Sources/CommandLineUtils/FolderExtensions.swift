@@ -11,11 +11,11 @@ import Files
 
 extension Folder {
 
-    static var icloudDocument: Folder {
+    public static var icloudDocument: Folder {
         try! Folder(path: "~/Library/Mobile Documents/com~apple~CloudDocs/")
     }
     
-    static func foldingTextFolder() throws -> Folder {
+    public static func foldingTextFolder() throws -> Folder {
         let folder = Self.icloudDocument
         return try Folder(path: folder.path + "/Folding Text/Work Summaries")
     }
